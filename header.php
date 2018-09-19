@@ -17,6 +17,7 @@ session_start();
 		<!--CSS Styles -->
 		<link href="style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="assets/js/jquery-2.2.1.js"></script>
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
 		<header>
