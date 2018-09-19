@@ -6,11 +6,9 @@
 			<p> Login </p>
 			<form action="includes/login.inc.php" method="post">
 				<div>
-					<span id="username_login_checked"></span>
 					<input type="text" name="username" id="username" placeholder="Username or Email" required/>
 				</div>
 				<div>
-					<span id="password_login_checked"></span>
 					<input type="password" name="password" id="password" placeholder="Password" required/>
 				</div>
 				<div>
