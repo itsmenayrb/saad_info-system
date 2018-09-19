@@ -7,11 +7,11 @@
 			<form action="includes/login.inc.php" method="post">
 				<div>
 					<span id="username_login_checked"></span>
-					<input type="text" name="username" id="username" placeholder="Username or Email" onkeyup="check_username_login()" />
+					<input type="text" name="username" id="username" placeholder="Username or Email" required/>
 				</div>
 				<div>
 					<span id="password_login_checked"></span>
-					<input type="password" name="password" id="password" placeholder="Password"/>
+					<input type="password" name="password" id="password" placeholder="Password" required/>
 				</div>
 				<div>
 					<input type="submit" name="submit" id="submit" value="Login"/>
@@ -21,8 +21,7 @@
 				</div>
 				<div>
 					<br><a href="forgotpassword.php">Forgot Password.</a>
-				</div>
-				
+				</div>			
 			</form>
 		</div>
 	</div>
