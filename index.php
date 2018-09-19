@@ -1,17 +1,13 @@
+<?php include 'header.php'; ?>
 
-<?php
-	include 'header.php';
-?>
-	<div class="main-container">
-		<div class="top-design">
-		</div>
+<div class="main-container">
+	<?php
+			if (isset($_SESSION['user_ID'])) {
+				echo "You are logged in";
+			}
+	?>
 
-		<?php
-				if (isset($_SESSION['user_ID'])) {
-					echo "You are logged in";
-				}
-		?>
-	</div>
-<?php
-	include 'footer.php';
-?>
+	<h3>Welcome to the Salitran II Online Help Desk</h3>
+</div>
+
+<?php include 'footer.php';?>
