@@ -20,10 +20,6 @@ session_start();
 		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
 		<header>
-			<div class="top-header">
-
-			</div>
-
 			<div class="main-wrapper">
 				<nav>
 				<ul>
