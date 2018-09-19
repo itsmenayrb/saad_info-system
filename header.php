@@ -12,7 +12,7 @@
 		<link href="style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="assets/js/jquery-2.2.1.js"></script>
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
 		<nav class="navbar navbar-default">
@@ -25,7 +25,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">Brand</a>
+		      <a class="navbar-brand" href="#"></a>
 		    </div>
 		
 		    <!-- Collect the nav links, forms, and other content for toggling -->
