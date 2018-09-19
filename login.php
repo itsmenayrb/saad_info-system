@@ -20,7 +20,7 @@
 					Not a member? <a href="register.php">Sign Up</a>
 				</div>
 				<div id="login-account-reset-link">
-					<br><a href="forgotpassword.php">Forgot Password.</a>
+					<a href="forgotpassword.php">Forgot Password.</a>
 				</div>			
 			</form>
 		</div>
