@@ -39,9 +39,7 @@
 		      <ul class="nav navbar-nav navbar-right">
 						<?php
 							if (isset($_SESSION['user_ID'])) {
-								echo '<form action="includes/logout.inc.php" method="POST" class="logout">
-								<input type="submit" name="submit" class="log-out" value="Logout"/>
-								</form>';
+								echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
 							}
 							else{
 								echo '<li><a href="login.php">Login</a></li>
