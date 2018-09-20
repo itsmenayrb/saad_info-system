@@ -9,7 +9,6 @@
 		<title>Welcome - Barangay Salitran II</title>
 
 		<!--CSS Styles -->
-		<link rel="stylesheet" href="reset-styles.css">
 		<link href="style.css" rel="stylesheet"/>
 		<script type="text/javascript" src="assets/js/jquery-2.2.1.js"></script>
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
