@@ -11,14 +11,14 @@
 				<div>
 					<input type="password" name="password" id="password" placeholder="Password" required/>
 				</div>
-				<div>
+				<div id="login-submit-button">
 					<input type="submit" name="submit" id="submit" value="Login"/>
 				</div>
-				<div>
+				<div id="login-register-link">
 					Not a member? <a href="register.php">Sign Up</a>
 				</div>
-				<div>
-					<br><a href="forgotpassword.php">Forgot Password.</a>
+				<div id="login-account-reset-link">
+					<a href="forgotpassword.php">Forgot Password.</a>
 				</div>			
 			</form>
 		</div>

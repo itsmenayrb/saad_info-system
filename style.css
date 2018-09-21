@@ -147,3 +147,30 @@ h4 {
     height: 100px;
     background-color: #00487e;
 }
+
+/**
+ * Log In Page Styles
+ */
+
+#login-form {
+	padding-top: 15px;
+}
+
+#login-password-input {
+	padding-top: 10px;
+}
+
+#login-submit-button {
+	padding-top: 5px;
+}
+
+#login-register-link {
+	padding-top: 20px;
+	padding-bottom: 0;
+	margin: 0;
+}
+
+#login-account-reset-link {
+	padding-top: 5px;
+	margin: 0;
+}
