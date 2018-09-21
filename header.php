@@ -39,7 +39,8 @@
 		      <ul class="nav navbar-nav navbar-right">
 						<?php
 							if (isset($_SESSION['user_ID'])) {
-								echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+								echo '<li><a href="./update.resident.php">Update Account</a></li>
+								<li><a href="includes/logout.inc.php">Logout</a></li>';
 							}
 							else{
 								echo '<li><a href="login.php">Login</a></li>
