@@ -1,8 +1,8 @@
 .registration-container, .login-container{
 	background: #ffffff;
-	max-width: 320px;
+	max-width: 450px;
 	width: 100%;
-	box-shadow: 0px 0px 10px rgba(0,0,0,5);
+	box-shadow: 0px 0px 1px rgba(0,0,0,5);
 	margin: 30px auto;
 	padding: 10px 15px;
 
@@ -27,9 +27,13 @@ input{
 }
 
 #submit{
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
 	color: #ffffff;
 	background-color: #0099ff;
 	width: 100%;
+	max-width: 200px;
 	padding: 10px 15px;
 	cursor: pointer;
 }
@@ -144,12 +148,14 @@ h4 {
 .success_report p{
 	width: 92%;
 	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: -10px;
 	padding: 10px;
 	border: 1px solid #99ff99;
 	color: #ffffff;
 	background: #66cc99;
 	border-radius: 5px;
-	text-align: left;
+	text-align: center;
 }
 
 .bottom_container {
@@ -178,11 +184,28 @@ h4 {
 	padding-top: 20px;
 	padding-bottom: 0;
 	margin: 0;
+	margin-top: -10px;
 }
 
 #login-account-reset-link {
 	padding-top: 5px;
 	margin: 0;
+}
+
+#login-on-register-page-link{
+	margin-top: 0px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+}
+
+#terms{
+	margin: 15px 0px 0px 90px;
+}
+
+#checkboxTerms{
+	float: left;
+	margin: 4px auto;
+	max-width: 20px;
 }
 
 /**

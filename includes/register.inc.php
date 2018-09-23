@@ -6,79 +6,87 @@ if (isset($_POST['submit'])) {
 
   //dbh.inc.php yung filename ng connector sa database, $conn naman yung variable.
 
-  $errors = array();
-
   $fname = mysqli_real_escape_string($conn, $_POST['fname']);
   $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-  $email = mysqli_real_escape_string($conn, $_POST['email'] );
+  $email = mysqli_real_escape_string($conn, $_POST['email']);
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
   $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
+  $checkboxTerms = $conn->$_POST['checkboxTerms'];
+
+  if(!empty($checkboxTerms)){
+    header("Location: ../register.php?signup=terms");
+    exit();
+  }
 
   //Error handlers
-  //Check for empty fields or kapag may hindi na input sa mga boxes
-
-  if (empty($fname) || empty($lname) || empty($email) || empty($username) || empty($password) || empty($cpassword)) {
-    header("Location: ../register.php?signup=emptyfields");
-    array_push($errors, "All fields are required");
+  // Check if input characters are valid, dapat letters lang
+  if (!preg_match("/^[a-zA-Z]*$/" , $fname) || !preg_match("/^[a-zA-Z]*$/" , $lname)) {
+    header("Location: ../register.php?signup=invalid");
+    exit();
   } 
 
   else {
-    // Check if input characters are valid, dapat letters lang
-    if (!preg_match("/^[a-zA-Z]*$/" , $fname) || !preg_match("/^[a-zA-Z]*$/" , $lname)) {
-      header("Location: ../register.php?signup=invalid");
-      array_push($errors, "Invalid Characters");
-    } 
+    // Check if email is valid 
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      header("Location: ../register.php?signup=email");
+      exit();
+    }
 
-    else {
-      // Check if email is valid 
-      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../register.php?signup=email");
-        array_push($errors, "Invalid Email");
-      }
-
-        $sql = "SELECT * FROM residents WHERE Email = '$email'";
-        $result = mysqli_query($conn, $sql);
-        $resultCheck = mysqli_num_rows($result);
+    else{
+      $sql = "SELECT * FROM residents WHERE Email = '$email'";
+      $result = mysqli_query($conn, $sql);
+      $resultCheck = mysqli_num_rows($result);
 
       if ($resultCheck > 0) {
-        header("Location: ../register.php?signup=emailisalreadyused");
-        array_push($errors, "Email is already used.");
-      } 
+        header("Location: ../register.php?signup=emailexist");
+        exit();
+      }
 
       else {
-        //Magccheck kapag yung username is nagamit na.
-        $sql = "SELECT * FROM residents WHERE Username = '$username'";
-        $result = mysqli_query($conn, $sql);
-        $resultCheck = mysqli_num_rows($result);
 
-        if ($resultCheck > 0) {
-          header("Location: ../register.php?signup=usernametaken");
-          array_push($errors, "Username is already taken.");
-        } 
+        if (!preg_match("/^[a-zA-Z0-9]{5,}*$/" , $username)){
+          header("Location: ../register.php?signup=uerror");
+          exit();
+        }
 
-        else {
+        else{
+          //Magccheck kapag yung username is nagamit na.
+          $sql = "SELECT * FROM residents WHERE Username = '$username'";
+          $result = mysqli_query($conn, $sql);
+          $resultCheck = mysqli_num_rows($result);
 
-          if ($password != $cpassword) {
-            array_push($errors, "Password does not match.");
-          }
+          if ($resultCheck > 0) {
+            header("Location: ../register.php?signup=usernametaken");
+            exit();
+          } 
 
           else {
-            // Hashing the password para secure.
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            //Insert the user into the database
-            $sql = "INSERT INTO residents (FirstName, LastName, Email, Username, Password) VALUES ('$fname', '$lname', '$email', '$username', '$hashedPassword');";
-            mysqli_query($conn, $sql);
-            header("Location: ../register.php?signup=success");
-            exit();
+            if (!preg_match("/^[a-zA-Z0-9]{8,}*$/" , $password)){
+              header("Location: ../register.php?signup=perror");
+            }
+
+            else {
+              if ($password != $cpassword) {
+                header("Location: ../register.php?signup=pwderror");
+                exit();
+              }
+              else {
+                // Hashing the password para secure.
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                //Insert the user into the database
+                $sql = "INSERT INTO residents (FirstName, LastName, Email, Username, Password) VALUES ('$fname', '$lname', '$email', '$username', '$hashedPassword');";
+                mysqli_query($conn, $sql);
+                header("Location: ../register.php?signup=success");
+                exit();
+              }              
+            }
           }
         }
       }
     }
-  }
-
-} 
-
+  } 
+}
 else {
   header("Location: ../register.php");
   exit();
