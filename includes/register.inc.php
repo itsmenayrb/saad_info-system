@@ -12,12 +12,6 @@ if (isset($_POST['submit'])) {
   $username = mysqli_real_escape_string($conn, $_POST['username']);
   $password = mysqli_real_escape_string($conn, $_POST['password']);
   $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
-  $checkboxTerms = $conn->$_POST['checkboxTerms'];
-
-  if(!empty($checkboxTerms)){
-    header("Location: ../register.php?signup=terms");
-    exit();
-  }
 
   //Error handlers
   // Check if input characters are valid, dapat letters lang
@@ -45,7 +39,7 @@ if (isset($_POST['submit'])) {
 
       else {
 
-        if (!preg_match("/^[a-zA-Z0-9]{5,}*$/" , $username)){
+        if (!preg_match("/^[a-zA-Z0-9]{5,}$/" , $username)){
           header("Location: ../register.php?signup=uerror");
           exit();
         }
@@ -62,7 +56,7 @@ if (isset($_POST['submit'])) {
           } 
 
           else {
-            if (!preg_match("/^[a-zA-Z0-9]{8,}*$/" , $password)){
+            if (!preg_match("/^[a-zA-Z0-9]{8,}$/" , $password)){
               header("Location: ../register.php?signup=perror");
             }
 
@@ -72,13 +66,21 @@ if (isset($_POST['submit'])) {
                 exit();
               }
               else {
-                // Hashing the password para secure.
-                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                //Insert the user into the database
-                $sql = "INSERT INTO residents (FirstName, LastName, Email, Username, Password) VALUES ('$fname', '$lname', '$email', '$username', '$hashedPassword');";
-                mysqli_query($conn, $sql);
-                header("Location: ../register.php?signup=success");
-                exit();
+
+                if(!isset($_POST['checkboxTerms'])){
+                  header("Location: ../register.php?signup=terms");
+                  exit();
+                }
+
+                else{
+                  // Hashing the password para secure.
+                  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                  //Insert the user into the database
+                  $sql = "INSERT INTO residents (FirstName, LastName, Email, Username, Password) VALUES ('$fname', '$lname', '$email', '$username', '$hashedPassword');";
+                  mysqli_query($conn, $sql);
+                  header("Location: ../register.php?signup=success");
+                  exit();
+                }
               }              
             }
           }

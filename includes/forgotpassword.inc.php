@@ -6,6 +6,7 @@ if (isset($_POST['send'])) {
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header("Location: ../forgotpassword.php?reset=error");
+        exit();
     }
 
     else{
@@ -15,12 +16,13 @@ if (isset($_POST['send'])) {
     $resultCheck = mysqli_num_rows($result);
 
         if ($resultCheck < 1) {
-            header("Location: ../forgotpassword.php?reset=error");
-          
+            header("Location: ../forgotpassword.php?reset=noemail");
+            exit();
         }
 
-        if ($resultCheck > 0){
+        elseif ($resultCheck > 0){
             header("Location: ../forgotpassword.php?reset=pending");
+            exit();
         }
 
     }

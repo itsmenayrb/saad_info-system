@@ -16,8 +16,22 @@
 					</div>
 					<div class="output" id="reset_options">
 						<div id="email" class="thru email">
-							<input type="text" name="email" id="email" placeholder="Enter your email address" class="emailforresetpwd" required><br>
-							<input type="submit" id="submit" name="send" value="Send">
+							<input type="text" name="email" id="email" placeholder="Enter your email address" class="emailforresetpwd" required/>
+							<?php
+							if(!isset($_GET['reset'])){
+
+							}
+							else{
+								$resetCheck = $_GET['reset'];
+								if($resetCheck == "error"){
+									echo "<div class='error_report'><p>Invalid email address!</p></div>";
+								}
+								elseif($resetCheck =="noemail"){
+									echo "<div class='error_report'><p>The email address is not yet registered!</p></div>";
+								}
+							}
+						?>
+							<input type="submit" id="submit" name="send" value="Send"/>
 						</div>
 						<div id="secquestion" class="thru secquestion">
 							<input type="text" name="username" id="username" placeholder="Username" required/><br>
@@ -28,10 +42,10 @@
 							<input type="submit" name="resetpwd" id="submit" value="Reset Password"/>
 						</div>
 					</div>
-					<div>
+					<div id="login-register-link">
 						<br>Not a member? <a href="register.php">Sign Up</a>
 					</div>
-					<div>
+					<div id="login-account-reset-link">
 						Click here to login. <a href="login.php">Login</a>
 					</div>			
 				</form>

@@ -10,11 +10,11 @@
 
 .pwdreset-container{
 	background: #ffffff;
-	max-width: 900px;
+	max-width: 450px;
 	width: 100%;
-	margin: 10px 5px 10px 15px;
 	box-shadow: 0px 0px 1px rgba(0,0,0,5);
-	padding: 15px 15px;
+	margin: 30px auto;
+	padding: 10px 15px;
 }
 input{
 	outline: none;
@@ -221,6 +221,7 @@ h4 {
 
 .output {
 	margin: 0 auto;
+	margin-top: -20px;
 	padding: 1em; 
   }
 .thru {
@@ -292,6 +293,11 @@ h4 {
 
 form .thru{
 	color: #444;
-	width: 60%;
+	width: 100%;
+}
+
+form .thru #submit{
+	float: right;
+	margin-right: 65px;
 }
 
