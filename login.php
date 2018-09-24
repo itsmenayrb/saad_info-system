@@ -14,12 +14,23 @@
 				<div id="login-submit-button">
 					<input type="submit" name="submit" id="submit" value="Login"/>
 				</div>
+				<?php 
+					if(!isset($_GET['login'])){
+						
+					}
+					else{
+						$loginCheck = $_GET['login'];
+						if($loginCheck == "error"){
+							echo "<div class='error_report'><p>Incorrect username or password!</p></div>";
+						}
+					}
+				?>
 				<div id="login-register-link">
 					Not a member? <a href="register.php">Sign Up</a>
 				</div>
 				<div id="login-account-reset-link">
 					<a href="forgotpassword.php">Forgot Password.</a>
-				</div>			
+				</div>	
 			</form>
 		</div>
 	</div>
