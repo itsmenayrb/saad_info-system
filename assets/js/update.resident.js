@@ -67,9 +67,10 @@ let submit_button = document.getElementById('submit');
       body: formData
     })
     .then(res => res.json())
-    .then(json => {
-      if(json.success) {
-        location.change('../logout');
+    .then(data => {
+      console.log(data);
+      if(data.success) {
+        window.location.href = "./index.php";
       }
     });
   });
