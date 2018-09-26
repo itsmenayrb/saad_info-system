@@ -67,6 +67,8 @@
       $query_string =  $query_string . ", suffix = '$suffix'";
     }
     
+    $query_string = $query_string . " WHERE user_ID = $user_ID";
+
     $updateResult = $conn -> query($query_string);
     
     if(!$updateResult) {
