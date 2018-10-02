@@ -28,7 +28,7 @@ CREATE TABLE `residents` (
   `Suffix` varchar(256),
   `Bday` date,
   `Bplace` varchar(256),
-  `Address` varchar(256),
+  `Address` varchar(500),
   `ContactNumber` int(11),
   `Email` varchar(256) NOT NULL,
   `Username` varchar(256) NOT NULL,

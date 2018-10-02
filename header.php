@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
 		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
+		  <div class="container">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -42,7 +42,8 @@
 		      <ul class="nav navbar-nav navbar-right">
 						<?php
 							if (isset($_SESSION['user_ID'])) {
-								echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+								echo '<li><a href="./update.resident.php">Update Account</a></li>
+								<li><a href="includes/logout.inc.php">Logout</a></li>';
 							}
 							else{
 								echo '<li><a href="login.php">Login</a></li>
