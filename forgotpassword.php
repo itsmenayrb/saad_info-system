@@ -16,7 +16,7 @@
 					</div>
 					<div class="output" id="reset_options">
 						<div id="email" class="thru email">
-							<input type="text" name="email" id="email" placeholder="Enter your email address" class="emailforresetpwd" required/>
+							<input type="text" name="email" id="email" autofocus="true" placeholder="Enter your email address" class="emailforresetpwd" required/>
 							<?php
 							if(!isset($_GET['reset'])){
 
@@ -34,11 +34,11 @@
 							<input type="submit" id="submit" name="send" value="Send"/>
 						</div>
 						<div id="secquestion" class="thru secquestion">
-							<input type="text" name="username" id="username" placeholder="Username" required/><br>
-							<input type="text" name="securityquestion1" id="securityquestion1" placeholder="Answer 1" required/><br>
-							<input type="text" name="securityquestion2" id="securityquestion2" placeholder="Answer 2" required/><br>
-							<input type="password" name="password" id="password" placeholder="Type your new password." required/><br>
-							<input type="password" name="cpassword" id="cpassword" placeholder="Retype your new password." required/><br>
+							<input type="text" name="username" id="username" placeholder="Username" autofocus="true" required/>
+							<input type="text" name="securityquestion1" id="securityquestion1" placeholder="Answer 1" required/>
+							<input type="text" name="securityquestion2" id="securityquestion2" placeholder="Answer 2" required/>
+							<input type="password" name="password" id="password" placeholder="Type your new password." required/>
+							<input type="password" name="cpassword" id="cpassword" placeholder="Retype your new password." required/>
 							<input type="submit" name="resetpwd" id="submit" value="Reset Password"/>
 						</div>
 					</div>

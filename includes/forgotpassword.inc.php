@@ -1,7 +1,6 @@
-<?php include 'dbh.inc.php' ; 
-
+<?php include "dbh.inc.php" ; 
+/*
 if (isset($_POST['send'])) {
-
     $email = mysqli_real_escape_string($conn, $_POST['email']);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -27,7 +26,7 @@ if (isset($_POST['send'])) {
 
     }
 
-}
+}*/
 
 if (isset($_POST['resetpwd'])){
     $username = mysqli_real_escape_string($conn, $_POST['username']);
@@ -42,6 +41,7 @@ if (isset($_POST['resetpwd'])){
 
     if ($resultCheck < 1){
         header("Location: ../forgotpassword.php?username=error");
+        exit();
     }
 
     else{
@@ -51,7 +51,7 @@ if (isset($_POST['resetpwd'])){
         $resultCheck = mysqli_num_rows($result);
 
         if ($resultCheck < 1){
-            header("Location ../fogotpassword.php?answer=incorrect");
+            header("Location ../fogotpassword.php?reset=incorrect");
         }
 
         else{
@@ -72,4 +72,5 @@ if (isset($_POST['resetpwd'])){
         }
     }
 }
+
 ?>

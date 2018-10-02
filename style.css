@@ -1,4 +1,14 @@
-.registration-container, .login-container{
+.main-container{
+	background-color: #f1f1f1;
+	opacity: 1;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+	position: absolute;
+}
+
+.login-container{
 	background: #ffffff;
 	max-width: 450px;
 	width: 100%;
@@ -8,6 +18,149 @@
 
 }
 
+/* Register style
+	Register style
+	Register style
+	Register style
+*/
+.registration-container{
+	background: #ffffff;
+	max-width: 1150px;
+	width: 100%;
+	box-shadow: 0px 0px 10px rgba(0,0,0,5);
+	margin: 30px auto;
+	padding: 10px 15px;
+}
+
+.left-container{
+	float: left;
+	margin-top: -20px;
+	padding: 15px;
+	margin-right: 15px;
+}
+
+.right-container{
+	margin-top: -20px;
+	padding: 15px;
+}
+
+select {
+	margin: 50px;
+	width: 100%;
+	padding: 5px 35px 5px 5px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	height: 34px;
+}
+
+input[type=radio]{
+	opacity: 0.7;
+	background-color: #ccc;
+}
+input[type=radio]:hover{
+	opacity: 1;
+}
+
+hr{
+	border: 1px solid #f1f1f1;
+  	margin-bottom: 25px;
+}
+button {
+	background-color: #4CAF50;
+  	padding: 14px 20px;
+  	margin: 8px 0;
+  	border: none;
+  	cursor: pointer;
+  	width: 100%;
+  	opacity: 0.9;
+}
+
+button:hover{
+  	opacity: 1;
+}
+
+.cancelBtn{
+	padding: 14px 20px;
+	background-color: #f44336;
+}
+
+.cancelBtn{
+	float: left;
+	width: 46%;
+	color: white;
+}
+
+.submitBtn{
+	float: left;
+	width: 54%;
+	color: white;
+}
+
+.row-button::after{
+	content: "";
+	clear: both;
+	display: table;
+}
+
+@media screen and (max-width: 300px){
+	.cancelBtn, .submitBtn{
+		width: 100%;
+	}
+}
+
+.registration-form-header{
+	margin: 0 auto;
+	text-align: center;
+}
+
+form label {
+	display:block;
+	font-size: 1.15em;
+	color:#333;
+  }
+	
+.readonly{
+	font-size: 20px;
+	border: 1px solid #aaaaaa;
+	display: inline-block;
+	height: 35px;
+	margin-top: 5px;
+	font-family: Raleway;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=number]{
+	padding: 10px;
+	width: 100%;
+	margin: 5px 0 10px 0;
+	border: none;
+	background: #f1f1f1;
+	border-radius: 5px;
+}
+
+#login-on-register-page-link{
+	margin-top: 5px;
+	width: 100%;
+	text-align: center;
+	background-color: #ccc;
+	height: 50px;
+	padding: 14px 20px;
+	opacity: 0.8;
+	border-radius: 5px;
+}
+
+#login-on-register-page-link:hover{
+	opacity: 1;
+}
+
+/* Forgot Password Style
+	Forgot Password Style
+	Forgot Password Style
+	Forgot Password Style
+*/
 .pwdreset-container{
 	background: #ffffff;
 	max-width: 450px;
@@ -16,6 +169,7 @@
 	margin: 30px auto;
 	padding: 10px 15px;
 }
+/*
 input{
 	outline: none;
 	width: 100%;
@@ -25,7 +179,7 @@ input{
 	padding: 10px 15px;
 	box-sizing: border-box;
 }
-
+*/
 #submit{
 	float: right;
 	margin-right: 20px;
@@ -161,7 +315,8 @@ h4 {
 .bottom_container {
 	width: 100%;
     height: 100px;
-    background-color: #00487e;
+	background-color: #f1f1f1;
+	position: absolute;
 }
 
 /**
@@ -192,20 +347,9 @@ h4 {
 	margin: 0;
 }
 
-#login-on-register-page-link{
-	margin-top: 0px;
-	margin-left: 15px;
-	margin-bottom: 15px;
-}
-
 #terms{
-	margin: 15px 0px 0px 90px;
-}
-
-#checkboxTerms{
-	float: left;
-	margin: 4px auto;
-	max-width: 20px;
+	text-align: center;
+	padding: 14px 20px;
 }
 
 /**
@@ -229,13 +373,6 @@ h4 {
 	color: #fff;
 	display: none;
 }
-
-  label {
-	display:block;
-	margin: 2em 1em .25em .75em;
-	font-size: 1.25em;
-	color:#333;
-  }
 
   .dropdown select {
 	width:100%;

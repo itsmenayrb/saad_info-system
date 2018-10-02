@@ -30,6 +30,9 @@
 		
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<div style="text-align:center;">
+						<h5>Philippine Time: <?php date_default_timezone_set("Asia/Hong_Kong"); echo date("m/d/Y") . " "; echo date("h:i:sa");?></h5>
+					</div>
 		      <ul class="nav navbar-nav">
 						<li><a href="index.php">Home</a></li>
 						<li><a href="services.php">Services</a></li>
