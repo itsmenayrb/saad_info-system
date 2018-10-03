@@ -121,6 +121,14 @@
 								<input type="text" name="block" placeholder="Block/Lot/Unit/House No." oninput="this.className = ''"/>
 								<input type="text" name="street" placeholder="Street" oninput="this.className = ''"/>
 								<input type="text" name="subdivision" placeholder="Subdivision" oninput="this.className = ''"/>
+								<table>
+									<tr>
+										<td>Barangay</td>
+										<td>City/Municipality</td>
+										<td>Province</td>
+										<td>Country</td>
+									</tr>
+								</table>
 								<p class="readonly">Barangay Salitran II</p>
 								<p class="readonly">Dasmariñas City</p>
 								<p class="readonly">Cavite</p>
