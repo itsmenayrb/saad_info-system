@@ -11,9 +11,6 @@
 				<div>
 					<input type="password" name="password" id="password" placeholder="Password" required/>
 				</div>
-				<div id="login-submit-button">
-					<input type="submit" name="submit" id="submit" value="Login"/>
-				</div>
 				<?php 
 					if(!isset($_GET['login'])){
 						
@@ -25,6 +22,9 @@
 						}
 					}
 				?>
+				<div id="login-submit-button">
+					<input type="submit" name="submit" id="submit" value="Login"/>
+				</div>
 				<div id="login-register-link">
 					Not a member? <a href="register.php">Sign Up</a>
 				</div>

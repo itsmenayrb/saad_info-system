@@ -132,11 +132,15 @@ if (isset($_POST['submit'])) {
                         else{
                           $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                           //Insert the user into the database
-                          $sql = "INSERT INTO users WHERE (Username, Email, Password, SecurityQuestion1, SecurityQuestion2) VALUES ('$username', '$email', '$hashedPassword', '$securityquestiononeanswer' , '$securityquestiontwoanswer')";
-                          $sql .= "INSERT INTO residents WHERE (Prefix, FirstName, Middlename, LastName, Suffix, Sex, Bday, Bplace, Address, TelephoneNumber, CellphoneNumber) VALUES ('$prefix', '$fname', '$mname', '$lname', '$suffix', '$gender', '$birthday', '$age', '$birthplace', '$address', '$telephonenumber', '$cellphonenumber')";
-                          $sql .= "INSERT INTO address WHERE (block, street, subdivision) VALUES ('$block', '$street', '$subdivision')"; 
                           
-                          mysqli_multi_query($conn, $sql);
+                          $sql1 = "INSERT INTO users (Username, Email, Password, SecurityQuestion1, AnswerOne, SecurityQuestion2, AnswerTwo) VALUES ('$username', '$email', '$hashedPassword', '$securityquestionone' , '$securityquestiononeanswer' , '$securityquestiontwo' , '$securityquestiontwoanswer');";
+                          $sql2 = "INSERT INTO residents (Prefix, FirstName, MiddleName, LastName, Suffix, Sex, Bday, Age, Bplace, Homeaddress, TelephoneNumber, CellphoneNumber) VALUES ('$prefix', '$fname', '$mname', '$lname', '$suffix', '$gender', '$birthday', '$age' , '$birthplace', '$address' , '$telephonenumber' , '$cellphonenumber');";
+                          $sql3 = "INSERT INTO address (block, street, subdivision) VALUES ('$block', '$street', '$subdivision');"; 
+                       
+                          mysqli_query($conn, $sql1);
+                          mysqli_query($conn, $sql2);
+                          mysqli_query($conn, $sql3);
+                      
                           header("Location: ../register.php?signup=success");
                           exit();    
                         }
@@ -146,11 +150,14 @@ if (isset($_POST['submit'])) {
                     else{
                       $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                       //Insert the user into the database
-                      $sql = "INSERT INTO users WHERE (Username, Email, Password, SecurityQuestion1, SecurityQuestion2) VALUES ('$username', '$email', '$hashedPassword', '$securityquestiononeanswer' , '$securityquestiontwoanswer')";
-                      $sql .= "INSERT INTO residents WHERE (Prefix, FirstName, Middlename, LastName, Suffix, Sex, Bday, Bplace, Address, TelephoneNumber, CellphoneNumber) VALUES ('$prefix', '$fname', '$mname', '$lname', '$suffix', '$gender', '$birthday', '$age', '$birthplace', '$address', '$telephonenumber', '$cellphonenumber')";
-                      $sql .= "INSERT INTO address WHERE (block, street, subdivision) VALUES ('$block', '$street', '$subdivision')"; 
                        
-                      mysqli_multi_query($conn, $sql);
+                      $sql1 = "INSERT INTO users (Username, Email, Password, SecurityQuestion1, AnswerOne, SecurityQuestion2, AnswerTwo) VALUES ('$username', '$email', '$hashedPassword', '$securityquestionone' , '$securityquestiononeanswer' , '$securityquestiontwo' , '$securityquestiontwoanswer');";
+                      $sql2 = "INSERT INTO residents (Prefix, FirstName, MiddleName, LastName, Suffix, Sex, Bday, Age, Bplace, Homeaddress, TelephoneNumber, CellphoneNumber) VALUES ('$prefix', '$fname', '$mname', '$lname', '$suffix', '$gender', '$birthday', '$age' , '$birthplace', '$address' , '$telephonenumber' , '$cellphonenumber');";
+                      $sql3 = "INSERT INTO address (block, street, subdivision) VALUES ('$block', '$street', '$subdivision');"; 
+                       
+                      mysqli_query($conn, $sql1);
+                      mysqli_query($conn, $sql2);
+                      mysqli_query($conn, $sql3);
                       header("Location: ../register.php?signup=success");
                       exit();
                     }
