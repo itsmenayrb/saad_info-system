@@ -1,28 +1,47 @@
 .main-container{
-	background-color: #f1f1f1;
+	background-color: #ffffff;
 	opacity: 1;
 	height: 100%;
 	width: 100%;
 	z-index: 1;
 	overflow: auto;
-	position: absolute;
 }
 
 .login-container{
 	background: #ffffff;
 	max-width: 450px;
 	width: 100%;
-	box-shadow: 0px 0px 1px rgba(0,0,0,5);
+	box-shadow: 0px 0px 10px rgba(0,0,0,5);
 	margin: 30px auto;
 	padding: 10px 15px;
 
 }
+
 
 /* Register style
 	Register style
 	Register style
 	Register style
 */
+.error{
+	border: 1px solid #b94a48!important;
+	background-color: #fee!important;
+}
+
+table{
+	margin: 0 auto;
+}
+
+table td{
+	padding: 5px;
+	padding-right: 40px;
+	border: 1px solid black;
+}
+::placeholder{
+	opacity: 0.8;
+	text-decoration: #888;
+	font-style: italic;
+}
 .registration-container{
 	background: #ffffff;
 	max-width: 1150px;
@@ -37,6 +56,7 @@
 	margin-top: -20px;
 	padding: 15px;
 	margin-right: 15px;
+	max-width: 520px;
 }
 
 .right-container{
@@ -121,11 +141,12 @@ form label {
 	
 .readonly{
 	font-size: 20px;
-	border: 1px solid #aaaaaa;
+	border-radius: 5px;
 	display: inline-block;
-	height: 35px;
+	height: 25px;
 	margin-top: 5px;
 	font-family: Raleway;
+	background-color: #f1f1f1f1;
 }
 
 *{
@@ -376,19 +397,20 @@ h4 {
 
   .dropdown select {
 	width:100%;
+	height: 40px;
 	margin:0;
 	background:none;
 	border: 1px solid transparent;
 	outline: none;
 	-webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  appearance: none;
-  -webkit-appearance: none;
-  font-size:1.25em;
-  color: #444;
-  padding: .6em 1.9em .5em .8em;
-  line-height:1.3;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+  	appearance: none;
+  	-webkit-appearance: none;
+  	font-size:1.25em;
+  	color: #444;
+  	padding: .6em 1.9em .5em .8em;
+  	line-height:15px;
 }
 
 .dropdown:hover {

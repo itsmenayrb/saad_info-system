@@ -12,7 +12,7 @@ if(isset($_POST['submit'])) {
 	//Error handlers
 	// Check naman kapag nasa database na yung info o nakapag-register na.
 
-	$sql = "SELECT * FROM residents WHERE Username='$Username' OR Email='$Username'";
+	$sql = "SELECT * FROM users WHERE Username='$Username' OR Email='$Username'";
 	$results = mysqli_query($conn, $sql);
 	$resultsCheck = mysqli_num_rows($results);
 
@@ -33,10 +33,8 @@ if(isset($_POST['submit'])) {
 			elseif ($hashedPasswordCheck == true) {
 				//Log in the user here
 				$_SESSION['Username'] = $row['Username'];
-				$_SESSION['user_ID'] = $row['user_ID'];
+				$_SESSION['id'] = $row['id'];
 				$_SESSION['Email'] = $row['Email'];
-				$_SESSION['FirstName'] = $row['Username'];
-				$_SESSION['LastName'] = $row['LastName'];
 				header("Location: ../index.php?login=success");
 				exit();
 			}
