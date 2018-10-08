@@ -3,6 +3,23 @@
 include "dbh.inc.php";
 //dbh.inc.php yung filename ng connector sa database, $conn naman yung variable.
 
+/**
+ * Check if a string is a valid date(time)
+ *
+ * DateTime::createFromFormat requires PHP >= 5.3
+ * 
+ * Source: https://www.pontikis.net/tip/?id=21
+ *
+ * @param string $str_dt
+ * @param string $str_dateformat
+ * @param string $str_timezone (If timezone is invalid, php will throw an exception)
+ * @return bool
+ */
+function isValidDateTimeString($str_dt, $str_dateformat, $str_timezone) {
+  $date = DateTime::createFromFormat($str_dateformat, $str_dt, new DateTimeZone($str_timezone));
+  return $date && DateTime::getLastErrors()["warning_count"] == 0 && DateTime::getLastErrors()["error_count"] == 0;
+}
+
 if (isset($_POST['submit'])) {
 
   // Sign-in Information
@@ -95,7 +112,7 @@ if (isset($_POST['submit'])) {
             }
             else{
               // Check if birthday is not numeric
-              if(!is_numeric($birthday)){
+              if(!isValidDateTimeString($birthday, 'm-d-Y', 'Asia/Manila')){
                 header("Location: ../register.php?signup=date");
                 array_push($errors, "You have entered invalid birthdate");
                 exit();
