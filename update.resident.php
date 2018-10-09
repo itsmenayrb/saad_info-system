@@ -76,16 +76,6 @@
 					<input type="text" name="E-mail" id="email" placeholder="Email" value="<?php echo $row['Email']; ?>" required/> 
 				</div>
 
-				<div id="password-update">
-					<label for="password">Password </label>
-					<input type="password" name="Password" id="password" placeholder="Password" required/> 
-				</div>
-
-				<div id="cpassword-update">
-					<label for="cpassword">Confirm Password </label>
-					<input type="password" name="Confirm-Password" id="cpassword" placeholder="Retype Password" required/> 
-				</div>
-
 				<input type="submit" name="submit" id="submit" value="Update"/>	
 		</form>
 	</div>
