@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Welcome - Barangay Salitran II</title>
-
+		<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico"/>
 		<!--CSS Styles -->
 		<link href="style.css" rel="stylesheet">
 		<script type="text/javascript" src="assets/js/jquery-2.2.1.js"></script>
@@ -25,7 +25,9 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#"></a>
+		      <a class="navbar-brand" href="./index.php">
+						<img src="./logo.circle.brand.png" alt="Home">
+					</a>
 		    </div>
 		
 		    <!-- Collect the nav links, forms, and other content for toggling -->
