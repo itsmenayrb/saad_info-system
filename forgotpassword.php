@@ -1,92 +1,84 @@
 <?php
 include 'header.php';
 ?>
-    <div class="main-container">
-        <div class="pwdreset-container">
-            <p> Reset Password </p>
-
-                <div>
-                    <label>Choose how do you want to reset your password</label>
-                </div>
-                <div class="button dropdown">
-                    <select id="resetselector">
-                        <option value="email">Via email</option>
-                        <option value="secquestion" selected>Via security question</option>
-                    </select>
-                </div>
-                <div class="output" id="reset_options">
-                    <form action="includes/forgotpassword.inc.php" method="POST">
-                    <div id="email" class="thru email">
-                        <input type="email" name="email" id="remail" autofocus="true" placeholder="Enter your email address" class="emailforresetpwd" required/>
-                        <?php
-                        if(!isset($_GET['reset'])){
-
-                        }
-                        else{
-                            $resetCheck = $_GET['reset'];
-                            if($resetCheck == "error"){
-                                echo "<div class='error_report'><p>Invalid email address!</p></div>";
-                            }
-                            elseif($resetCheck =="noemail"){
-                                echo "<div class='error_report'><p>The email address is not yet registered!</p></div>";
-                            }
-                        }
-                        ?>
-                        <input type="submit" id="submit" name="send" value="Send"/>
-                    </div>
-                    </form>
-                    <form action="includes/forgotpassword.inc.php" method="POST">
-                    <div id="secquestion" class="thru secquestion">
-                        <input type="text" name="username" id="username" placeholder="Username" autofocus="true" required/>
-                        <input type="text" name="securityQuestionOneAnswer" id="securityquestiononeanswer" placeholder="Answer 1" required/>
-                        <input type="text" name="securityQuestionTwoAnswer" id="securityquestiontwoanswer" placeholder="Answer 2" required/>
-                        <input type="password" name="password" id="password" placeholder="Type your new password." required/>
-                        <input type="password" name="cpassword" id="cpassword" placeholder="Retype your new password." required/>
-                        <input type="submit" name="resetPassword" id="submit" value="Reset Password"/>
-                    </div>
-                    </form>
-                </div>
-                <div id="login-register-link">
-                    <br>Not a member? <a href="register.php">Sign Up</a>
-                </div>
-                <div id="login-account-reset-link">
-                    Click here to <a href="login.php">Login</a>
-                </div>
+    
+<div class="container" id="fpContainer"> <!-- START OF CONTAINER CLASS -->
+    <div class="row"> <!-- FIRST ROW -->
+        <div class="col-lg-12">
+            <legend>Choose how do you want to change your password.</legend>
         </div>
-    </div>
-    <script type="text/javascript">
-        $(function(){
-            $('#resetselector').change(function(){
-                $('.thru').hide();
-                $('#' + $(this).val()).show();
-            });
-        });
-    </script>
-    <script>
-        var  email = $("#remail");
+    </div> <!-- END OF FIRST ROW -->
+    <div class="row"> <!-- SECOND ROW -->
+        <div class="col-lg-12">
+            <form id="reset-password-selection-form">
+                <select id="resetselector" class="form-control">
+                    <option value="blank" selected="selected"></option>
+                    <option value="email-form">Via email</option>
+                    <option value="security-question-form">Via security question</option>
+                </select>
+            </form>
+        </div>
+    </div> <!-- END OF SECOND ROW -->
+    <div class="row"> <!-- THIRD ROW -->
+        <div class="col-lg-12">
+            <div class="output">
+                <form id="blank"></form>
+                <form action="includes/forgotpassword.inc.php" method="POST" id="email-form"> <!-- FORM FOR EMAIL -->
+                    <div class="form-group">
+                        <br>
+                        <input type="email" name="email" id="remail" autofocus="true" class="form-control" placeholder="Enter your email address" class="emailforresetpwd" aria-describedby="remailHelpBlock" required/>
+                        <small id="remailHelpBlock" class="form-text text-muted">To reset your password, enter your email and we will send reset password instructions on your email.</small><br>
+                        <input type="submit" class="form-control btn btn-primary" id="send" name="send" value="Send"/>
+                    </div>
+                </form> <!-- END OF FORM FOR EMAIL -->
+                <form action="includes/forgotpassword.inc.php" method="POST" id="security-question-form"> <!-- FORM FOR SECURITY QUESTION -->
+                    <div class="form-group">
+                        <small id="rusernameHelpBlock" class="form-text text-muted">Username</small>
+                        <input type="text" class="form-control" name="username" id="username" autofocus="true" minlength="5" aria-describedby="rusernameHelpBlock" required/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <small id="rsec1HelpBlock" class="form-text text-muted">Security Question One <i>(Answer)</i></small>
+                                <input type="text" class="form-control" name="securityQuestionOneAnswer" id="securityquestiononeanswer" aria-describedby="rsec1HelpBlock" required/>
+                            </div>
+                            <div class="col-md-6">
+                                <small id="rsec2HelpBlock" class="form-text text-muted">Security Question Two <i>(Answer)</i></small>
+                                <input type="text" class="form-control" name="securityQuestionTwoAnswer" id="securityquestiontwoanswer" aria-describedby="rsec2HelpBlock" required/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                            <small id="rpasswordHelpBlock" class="form-text text-muted">Type your new password</small>
+                                <input type="password" class="form-control" name="password" id="password" aria-describedby="rpasswordHelpBlock" minlength="8" required/>
+                            </div>
+                            <div class="col-md-6">
+                                <small id="rcpasswordHelpBlock" class="form-text text-muted">
+                                    Re-type Password.
+                                </small>
+                                <input type="password" class="form-control" name="cpassword" id="cpassword" aria-describedby="rcpasswordHelpBlock" minlength="8" required/>
+                            </div>
+                        </div>
+                        <br>
+                        <input type="submit" class="form-control btn btn-primary" name="resetPassword" id="reset" value="Reset Password"/>
+                    </div>
+                </form> <!-- END OF FORM FOR SECURITY QUESTION -->
+            </div> <!-- END OF OUTPUT CLASS -->
+        </div> <!-- END OF COLUMN -->
+    </div> <!-- END OF THIRD ROW -->
+</div> <!-- END OF CONTAINER -->
+<script>
+    $('#email-form').validate();
+    $('#security-question-form').validate({
+        rules:{
+            cpassword:{
+                equalTo:"#password",
+            }
+        }
+    });
 
-        $(document).ready(function () {
-           $('#submit').on('click', function(){
-               if(email.val() != ""){
-                   email.css('border', '1px solid green');
-
-                   $.ajax({
-                       url:'forgotpassword.php',
-                       method: 'POST',
-                       dataType: 'text',
-                       data: {
-                           email: email.val()
-                       }, success: function (response){
-                           console.log(response);
-                       }
-                   })
-               }
-               else{
-                   email.css('border', '1px solid red');
-               }
-           });
-        });
-    </script>
+    $("#resetselector").on("change", function() {
+        $("#" + $(this).val()).show().siblings().hide();
+    });
+</script>
 <?php
 include ('footer.php');
 ?>
