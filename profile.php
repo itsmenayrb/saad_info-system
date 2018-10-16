@@ -28,7 +28,16 @@
 					echo "<tr><td>Home Address: </td>";
 					echo "<td>" . $row['Homeaddress'] . "</td></tr>";
 					echo "<tr><td>Contact Number: </td>";
-					echo "<td>" . $row['TelephoneNumber'] . " / " . $row['CellphoneNumber'] . "</td></tr></table>";
+
+					echo "<td>" . $row['TelephoneNumber'];
+
+					// Print the slash if both the Telephone and cellphone numbers have a value or not an empty string
+					if(strlen($row['TelephoneNumber']) > 0 && strlen($row['CellphoneNumber']) > 0) {
+						echo " / " ;
+					}
+		
+					echo $row['CellphoneNumber'] . "</td></tr></table>";
+
 					echo "</div>";
 				}
 			}
