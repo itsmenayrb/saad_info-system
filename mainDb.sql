@@ -84,8 +84,8 @@ CREATE TABLE `residents` (
   `Age` int(11) NOT NULL,
   `Bplace` varchar(256) NOT NULL,
   `Homeaddress` varchar(256) NOT NULL,
-  `TelephoneNumber` bigint(11) NOT NULL,
-  `CellphoneNumber` bigint(11) NOT NULL,
+  `TelephoneNumber` VARCHAR(20) NOT NULL,
+  `CellphoneNumber` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`user_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -131,11 +131,19 @@ CREATE TABLE `users` (
   `AnswerOne` varchar(255) NOT NULL,
   `SecurityQuestion2` varchar(255) NOT NULL,
   `AnswerTwo` varchar(255) NOT NULL,
-  `Token` varchar(255) NOT NULL,
-  `TokenSum` varchar(255) NOT NULL,
+  `Token` varchar(255),
+  `TokenSum` varchar(255),
   `DateCreated` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `relationship`;
+
+CREATE TABLE `relationship` (
+  `FromUser` INTEGER NOT NULL,
+  `Relation` INTEGER NOT NULL,
+  `ToUser` INTEGER NOT NULL
+);
 
 /*Data for the table `users` */
 

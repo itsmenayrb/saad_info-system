@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include ("functions.php");
+    include "functions.php";
+    include 'includes/action.inc.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@
     <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
-    <link href="assets/bootstrap/css/glyphicons.css">
+    <link href="assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- END OF BOOSTRAP AND CSS SCRIPT -->
 
@@ -28,9 +29,9 @@
                     <a href="index.php"><img src="img/logo.png" class="img-responsive" height="135" width="135" style="margin-top: 10px;margin-left: 10px;max-width: 100%;height: auto;"></a>
                 </div>
                 <div class="d-none d-md-block col-sm-7 col-md-6 col-lg-5" style="font-family: 'Baskerville Old Face';">
-                    <label class="h6" style="margin-top: 20px; font-size: 2.5vw;"><u>Republic of the Philippines</u></label><br>
-                    <label class="h1" style="margin-top: -10px;margin-left: -25px;font-size: 4vw;">Barangay Salitran II</label><br>
-                    <label class="h4" style="margin-top: -40px;font-size: 2vw;">City of Dasmariñas, Province of Cavite</label>
+                    <label class="h6" style="margin-top: 20px; font-size: 2vw;"><u>Republic of the Philippines</u></label><br>
+                    <label class="h1" style="margin-top: -10px;margin-left: -25px;font-size: 3vw;">Barangay Salitran II</label><br>
+                    <label class="h4" style="margin-top: -20px;font-size: 2vw;">City of Dasmariñas, Province of Cavite</label>
                 </div>
                 <div class="d-none d-md-block col-sm-3 col-md-4 col-lg-5 text-right" style="font-family: 'Baskerville Old Face';">
                     <label class="h6" style="margin-top: 40px;font-size: 1.75vw;"><u>Philippine Standard Time</u></label>
@@ -74,7 +75,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;"><?php echo $_SESSION['Username'];?></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a href="#" class="dropdown-item">Profile</a>
+                                <a href="profile.php" class="dropdown-item">Profile</a>
                                 <a href='update.resident.php' class="dropdown-item">Account Settings</a>
                                 <a href='#' class="dropdown-item">Security Settings</a>
                                 <div class="dropdown-divider"></div>

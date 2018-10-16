@@ -35,4 +35,13 @@
         $data = htmlspecialchars($data);
         return $data;
     }
+
+    /**
+     * Check if the $_SERVER['REQUEST_METHOD'] is set to the given string
+     * @param string $str_httpMethod The string that needs to be checked
+     * @return bool
+     */
+    function serverRequestCheck($str_httpMethod) {
+        return $_SERVER['REQUEST_METHOD'] === $str_httpMethod;
+    }
 ?>

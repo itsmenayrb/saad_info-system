@@ -153,3 +153,18 @@ input[type=text] , input[type=password] , input[type=email]{
 #reg-securityquestionone, #reg-securityquestiontwo, #reg-suffix, #reg-prefix{
     border-color: rgba(34, 34, 34, 0.65);
 }
+
+/* PROFILE CSS!!
+PROFILE CSS!!
+PROFILE CSS!! */
+
+.main-section{
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px 1px;
+}
+
+.main-section legend{
+    color:black;
+    font-size:2.5vw;
+    text-transform: capitalize;
+}

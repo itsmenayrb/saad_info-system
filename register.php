@@ -1,6 +1,5 @@
 <?php
     include 'header.php';
-    include 'includes/action.inc.php';
 ?>
 <div class="container" id="regContainer">
     <form action="register.php" method="post" id="registration-form" autocomplete="off">
