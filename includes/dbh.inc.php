@@ -1,7 +1,5 @@
 <?php
-
 //DATABASE CONNECTOR
-
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";

@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include ("functions.php");
+    include "functions.php";
+    include 'includes/action.inc.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@
     <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
-    <link href="assets/bootstrap/css/glyphicons.css">
+    <link href="assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- END OF BOOSTRAP AND CSS SCRIPT -->
 
@@ -74,7 +75,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;"><?php echo $_SESSION['Username'];?></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a href="#" class="dropdown-item">Profile</a>
+                                <a href="profile.php" class="dropdown-item">Profile</a>
                                 <a href='update.resident.php' class="dropdown-item">Account Settings</a>
                                 <a href='#' class="dropdown-item">Security Settings</a>
                                 <div class="dropdown-divider"></div>

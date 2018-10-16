@@ -4,6 +4,7 @@ include 'header.php';
     
 <div class="container" id="fpContainer"> <!-- START OF CONTAINER CLASS -->
     <div class="row"> <!-- FIRST ROW -->
+        <?php include 'errors.php'; ?>
         <div class="col-lg-12">
             <legend>Choose how do you want to change your password.</legend>
         </div>
@@ -23,7 +24,7 @@ include 'header.php';
         <div class="col-lg-12">
             <div class="output">
                 <form id="blank"></form>
-                <form action="includes/forgotpassword.inc.php" method="POST" id="email-form"> <!-- FORM FOR EMAIL -->
+                <form action="forgotpassword.php" method="POST" id="email-form"> <!-- FORM FOR EMAIL -->
                     <div class="form-group">
                         <br>
                         <input type="email" name="email" id="remail" autofocus="true" class="form-control" placeholder="Enter your email address" class="emailforresetpwd" aria-describedby="remailHelpBlock" required/>
@@ -31,7 +32,7 @@ include 'header.php';
                         <input type="submit" class="form-control btn btn-primary" id="send" name="send" value="Send"/>
                     </div>
                 </form> <!-- END OF FORM FOR EMAIL -->
-                <form action="includes/forgotpassword.inc.php" method="POST" id="security-question-form"> <!-- FORM FOR SECURITY QUESTION -->
+                <form action="forgotpassword.php" method="POST" id="security-question-form"> <!-- FORM FOR SECURITY QUESTION -->
                     <div class="form-group">
                         <small id="rusernameHelpBlock" class="form-text text-muted">Username</small>
                         <input type="text" class="form-control" name="username" id="username" autofocus="true" minlength="5" aria-describedby="rusernameHelpBlock" required/>

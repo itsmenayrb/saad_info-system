@@ -4,17 +4,17 @@
 
     use PHPMailer\PHPMailer\PHPMailer;
 
-
+    $errors = array();
+    
     if(isset($_POST['send'])){
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $email = checkInput($_POST['email']);
 
         $sql = "SELECT * FROM users WHERE Email = '$email'";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
 
         if($resultCheck<1){
-            header("Location: ../forgotpassword.php?reset=email");
-            exit();
+            array_push($errors, "Email not sent. Invalid Email.");
         }
         else{
             $token = generateNewString();
@@ -50,47 +50,28 @@
     }
 
     if(isset($_POST['resetPassword'])){
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $securityQuestionOneAnswer = mysqli_real_escape_string($conn, $_POST['securityQuestionOneAnswer']);
-        $securityQuestionTwoAnswer = mysqli_real_escape_string($conn, $_POST['securityQuestionTwoAnswer']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
-        $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
+        $username = checkInput($_POST['username']);
+        $securityQuestionOneAnswer = checkInput($_POST['securityQuestionOneAnswer']);
+        $securityQuestionTwoAnswer = checkInput($_POST['securityQuestionTwoAnswer']);
+        $password = checkInput($_POST['password']);
+        $cpassword = checkInput($_POST['cpassword']);
 
-        $sql = "SELECT * FROM users WHERE Username='$username'";
+        $sql = "SELECT * FROM users WHERE Username='$username' AND AnswerOne = '$securityQuestionOneAnswer' AND AnswerTwo = '$securityQuestionTwoAnswer'";
         $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
 
         if($resultCheck < 1){
-            header("Location: ../forgotpassword.php?reset=error");
-            exit();
+            array_push($errors, "Invalid input! Please make sure that the username and answers is correct.");
         }
 
         else {
-            $sql = "SELECT * FROM users WHERE AnswerOne = '$securityQuestionOneAnswer' AND AnswerTwo = '$securityQuestionTwoAnswer'";
-            $result = mysqli_query($conn, $sql);
-            $resultCheck = mysqli_num_rows($result);
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            if ($resultCheck < 1) {
-                header("Location: ../forgotpassword.php?reset=invalid");
-                exit();
-            } else {
-                if (!preg_match("/^[a-zA-Z0-9]{8,}$/", $password)) {
-                    header("Location: ../forgotpassword.php?reset=perror");
-                    exit();
-                } else {
-                    if ($password != $cpassword) {
-                        header("Location: ../forgotpassword.php?reset=cperror");
-                        exit();
-                    } else {
-                        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-                        $sql = "UPDATE users SET Password='$hashedPassword' WHERE AnswerOne='$securityQuestionOneAnswer' AND AnswerTwo = '$securityQuestionTwoAnswer'";
-                        mysqli_query($conn, $sql);
-                        header("Location:../forgotpassword.php?reset=success");
-                        exit();
-                    }
-                }
-            }
+            $sql = "UPDATE users SET Password='$hashedPassword' WHERE AnswerOne='$securityQuestionOneAnswer' AND AnswerTwo = '$securityQuestionTwoAnswer'";
+            mysqli_query($conn, $sql);
+            echo "<script>alert('Reset Password Successful!');</script>";
+            header("Location: ../login.php");
+            exit(); 
         }
     }
-    ?>
+?>
