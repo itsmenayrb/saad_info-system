@@ -137,6 +137,14 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `relationship`;
+
+CREATE TABLE `relationship` (
+  `FromUser` INTEGER NOT NULL,
+  `Relation` INTEGER NOT NULL,
+  `ToUser` INTEGER NOT NULL
+);
+
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`Username`,`Password`,`Email`,`SecurityQuestion1`,`AnswerOne`,`SecurityQuestion2`,`AnswerTwo`,`Token`,`TokenSum`,`DateCreated`) values 
