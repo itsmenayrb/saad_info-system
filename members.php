@@ -5,6 +5,8 @@
 
 <?php include_once 'header.php'; ?>
 
+<div class="container">
+
 <?php
   // Id of the logged in user
   $id = $_SESSION['id'];
@@ -21,7 +23,7 @@
   // If no relationships exist so far, find one... JK tell the user that they could
   // add new ones on existing accounts only
   if($result -> num_rows <= 0) {
-    echo "If you have a family member that already has an account, you can add them as your family member.";
+    echo "<div style='min-height: 100px'>If you have a family member that already has an account, you can add them as your family member.</div>";
   }
 
   while($row = $result -> fetch_assoc()) {
@@ -42,7 +44,23 @@
   }
 ?>
 
-<form method="POST" action="">
-</form>
+
+  <h4>Add a new family member</h4>
+  <form method="POST" action="./includes/add.new.member.request.handler.php">
+    <input type="hidden" name="fromUser" value="<?php echo $id; ?>">
+    
+    <label for="toUser">ID of the user that you want to add: </label>
+    <input type="number" name="toUser" id="toUser"> 
+    
+    <br>
+  
+    <label for="relation">What is your relation to the other user?</label>
+    <input type="text" name="relation" id="relation">
+    
+    <br>
+
+    <input type="submit" value="submit">
+  </form>
+</div>
 
 <?php include_once 'footer.php'; ?>
