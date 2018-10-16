@@ -29,9 +29,9 @@
                     <a href="index.php"><img src="img/logo.png" class="img-responsive" height="135" width="135" style="margin-top: 10px;margin-left: 10px;max-width: 100%;height: auto;"></a>
                 </div>
                 <div class="d-none d-md-block col-sm-7 col-md-6 col-lg-5" style="font-family: 'Baskerville Old Face';">
-                    <label class="h6" style="margin-top: 20px; font-size: 2.5vw;"><u>Republic of the Philippines</u></label><br>
-                    <label class="h1" style="margin-top: -10px;margin-left: -25px;font-size: 4vw;">Barangay Salitran II</label><br>
-                    <label class="h4" style="margin-top: -40px;font-size: 2vw;">City of Dasmariñas, Province of Cavite</label>
+                    <label class="h6" style="margin-top: 20px; font-size: 2vw;"><u>Republic of the Philippines</u></label><br>
+                    <label class="h1" style="margin-top: -10px;margin-left: -25px;font-size: 3vw;">Barangay Salitran II</label><br>
+                    <label class="h4" style="margin-top: -20px;font-size: 2vw;">City of Dasmariñas, Province of Cavite</label>
                 </div>
                 <div class="d-none d-md-block col-sm-3 col-md-4 col-lg-5 text-right" style="font-family: 'Baskerville Old Face';">
                     <label class="h6" style="margin-top: 40px;font-size: 1.75vw;"><u>Philippine Standard Time</u></label>
