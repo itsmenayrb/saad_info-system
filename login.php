@@ -1,9 +1,11 @@
 <?php
 	include 'header.php';
+	include 'includes/action.inc.php';
 ?>
-
 <div class="container" id="loginContainer">
-	<form action="includes/login.inc.php" method="post" id="login-form">
+	<form action="login.php" method="post" id="login-form">
+		<?php include 'errors.php'; ?>
+		<br>
 		<div class="form-group">
 			<label for="username" class="h5">Username</label>
 			<input type="text" class="form-control" name="username" id="username" minlength="5" required/>
@@ -19,13 +21,11 @@
 		</div>          
 		<br>
 		<div class="form-group">
-			<input type="submit" class="form-control btn btn-primary" name="submit" id="login" value="Login"/>
+			<input type="submit" class="form-control btn btn-primary" name="login" id="login" value="Login"/>
 		</div>
 	</form> <!-- END OF FORM-->
 </div> <!-- END OF CONTAINER -->
 <script>
 	$('#login-form').validate();
 </script>
-<?php
-	include 'footer.php';
-?>
+<?php include 'footer.php'; ?>

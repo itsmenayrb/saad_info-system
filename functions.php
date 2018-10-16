@@ -1,4 +1,5 @@
 <?php
+    include 'includes\dbh.inc.php';
     function generateNewString($len = 10){
         $token = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         $token = str_shuffle($token);
@@ -27,5 +28,11 @@
     function isValidDateTimeString($str_dt, $str_dateformat, $str_timezone) {
         $date = DateTime::createFromFormat($str_dateformat, $str_dt, new DateTimeZone($str_timezone));
         return $date && DateTime::getLastErrors()["warning_count"] == 0 && DateTime::getLastErrors()["error_count"] == 0;
+    }
+    function checkInput($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 ?>

@@ -1,8 +1,6 @@
 <?php
-    include 'includes/dbh.inc.php';
     include 'header.php';
 ?>
-
 <body>
     <div class="carousel slide carousel-fade" id="myCarousel" data-ride="carousel"> <!-- CAROUSEL -->
         <ol class="carousel-indicators">

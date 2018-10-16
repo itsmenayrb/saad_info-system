@@ -1,27 +1,22 @@
 <?php
-    include 'includes/dbh.inc.php';
-    require 'functions.php';
     session_start();
+    include ("functions.php");
 ?>
-
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <!-- SIZE BASE ON THE DEVICE USING BY A USER -->
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- END OF META -->
-
-    <title>Barangay Salitran II</title>
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <!-- BOOTSTRAP, js AND CSS SCRIPT -->
     <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
     <link href="assets/bootstrap/css/glyphicons.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- END OF BOOSTRAP AND CSS SCRIPT -->
@@ -39,7 +34,7 @@
                 </div>
                 <div class="d-none d-md-block col-sm-3 col-md-4 col-lg-5 text-right" style="font-family: 'Baskerville Old Face';">
                     <label class="h6" style="margin-top: 40px;font-size: 1.75vw;"><u>Philippine Standard Time</u></label>
-                    <label class="h6" style="margin-top: -10px;font-size: 1.75vw;"><?php date_default_timezone_set("Asia/Hong_Kong"); echo date("l,m/d/Y") . " "; echo date("h:i:sa");?></label>
+                    <label class="h6" style="margin-top: -10px;font-size: 1.75vw;"><?php date_default_timezone_set("Asia/Hong_Kong"); echo date("l,m/d/Y") . " "; echo date("h:i:sa"); ?></label>
                 </div>
             </div>
         </div>
@@ -74,8 +69,18 @@
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-1 form-control-sm" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-info btn-sm mr-sm-5" type="submit">Search</button>
-                    <?php if(isset($_SESSION['Username'])){ ?> 
-                        Welcome <?php echo $_SESSION['Username'];?><a href='update.resident.php'>Update Account</a><a href='includes/logout.inc.php'>Sign Out</a>
+                    <?php if(isset($_SESSION['Username'])){ ?>
+                        <li class="navbar-nav dropdown"> 
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;"><?php echo $_SESSION['Username'];?></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a href="#" class="dropdown-item">Profile</a>
+                                <a href='update.resident.php' class="dropdown-item">Account Settings</a>
+                                <a href='#' class="dropdown-item">Security Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a href='includes/logout.inc.php' class="dropdown-item">Sign Out</a>
+                            </div>
+                        </li>
                     <?php } else { ?>
                             <a role='button' class='btn btn-primary btn-sm mr-sm-2' href="login.php">Login</a>
                             <a role='button' class='btn btn-outline-secondary btn-sm my-2 my-sm-0' href="register.php"> Register</a>
@@ -86,69 +91,4 @@
     </nav>
     <!-- END OF NAVIGATION -->
 </head>
-<script type="text/javascript">
-    $('#register').click(function(e){
-        if(document.getElementById('#registration-form').checkValidity()){
-            e.preventDefault();
-            $.ajax({
-                url:'includes/action.inc.php',
-                method: 'post',
-                data:$('#registration-form').serialize()+'&action=register',
-                success:function(response){
-                    $('#registrationModal').modal({backdrop: 'static'});
-                    $("#alert").show();
-                    $("#result").html(response);
-                }
-            });
-        }
-        return true;
-    });
-
-    $('#login').click(function(e){
-        if(document.getElementById('#login-form').checkValidity()){
-            e.preventDefault();
-            $.ajax({
-                url:'includes/action.inc.php',
-                method: 'post',
-                data:$('#login-form').serialize()+'&action=login',
-                success:function(response){
-                    $("#alert").show();
-                    $("#result").html(response);
-                }
-            });
-        }
-        return true;
-    });
-
-    $('#send').click(function(e){
-        if(document.getElementById('#email-form').checkValidity()){
-            e.preventDefault();
-            $.ajax({
-                url:'includes/action.inc.php',
-                method: 'post',
-                data:$('#email-form').serialize()+'&action=email',
-                success:function(response){
-                    $("#alert").show();
-                    $("#result").html(response);
-                }
-            });
-        }
-        return true;
-    });
-
-    $('#reset').click(function(e){
-        if(document.getElementById('#security-question-form').checkValidity()){
-            e.preventDefault();
-            $.ajax({
-                url:'includes/action.inc.php',
-                method: 'post',
-                data:$('#security-question-form').serialize()+'&action=security_question',
-                success:function(response){
-                    $("#alert").show();
-                    $("#result").html(response);
-                }
-            });
-        }
-        return true;
-    });
-</script>
+<body>

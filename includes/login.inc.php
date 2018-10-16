@@ -1,13 +1,15 @@
 <?php
+include 'dbh.inc.php';
 
-session_start();
+$Username ="";
+$Password ="";
+
+$errors = array();
 
 if(isset($_POST['submit'])) {
 
-	include 'dbh.inc.php';
-
-	$Username = mysqli_real_escape_string($conn, $_POST['username']);
-	$Password = mysqli_real_escape_string($conn, $_POST['password']);
+	$Username = checkInput($_POST['username']);
+	$Password = checkInput($_POST['password']);
 
 	//Error handlers
 	// Check naman kapag nasa database na yung info o nakapag-register na.
@@ -17,8 +19,7 @@ if(isset($_POST['submit'])) {
 	$resultsCheck = mysqli_num_rows($results);
 
 	if($resultsCheck < 1){
-		header("Location: ../login.php?login=error");
-		exit();
+		array_push($errors,"Incorrect username or password!");
 	}
 
 	else {
@@ -27,7 +28,7 @@ if(isset($_POST['submit'])) {
 			//De-hashing the password
 			$hashedPasswordCheck = password_verify($Password, $row['Password']);
 			if ($hashedPasswordCheck == false) {
-				header("Location: ../login.php?login=error");
+				array_push($errors, "Something went wrong. Please try again later.");
 				exit();
 			}
 			elseif ($hashedPasswordCheck == true) {
@@ -35,15 +36,10 @@ if(isset($_POST['submit'])) {
 				$_SESSION['Username'] = $row['Username'];
 				$_SESSION['id'] = $row['id'];
 				$_SESSION['Email'] = $row['Email'];
-				header("Location: ../index.php?login=success");
+				header("Location: ../index.php");
 				exit();
 			}
 		}
 	}
 }
-else {
-		header("Location: ../login.php?login=error");
-		exit();
-}
-
 ?>

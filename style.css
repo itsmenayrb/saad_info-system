@@ -121,7 +121,35 @@ p{
     display: none;
 }
 
+/* RESULT DISPLAY */
 .error{
     color: red;
     font-size: 0.8em;
+}
+.form-error {
+    width: 92%; 
+    margin: 0px auto; 
+    padding: 10px; 
+    border: 1px solid #a94442; 
+    color: #a94442; 
+    background: #f2dede; 
+    border-radius: 5px; 
+    text-align: left;
+}
+.form-success {
+    color: #3c763d; 
+    background: #dff0d8; 
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+}
+.input-error{
+    border: 1px solid red;
+}
+
+input[type=text] , input[type=password] , input[type=email]{
+    border-color: rgba(34, 34, 34, 0.65);
+}
+
+#reg-securityquestionone, #reg-securityquestiontwo, #reg-suffix, #reg-prefix{
+    border-color: rgba(34, 34, 34, 0.65);
 }
