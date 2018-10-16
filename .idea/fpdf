@@ -1,0 +1,36 @@
+<?php
+require "fpdf.php";
+
+class myPDF extends FPDF{
+
+    function header(){
+        $this->Image('logo.png',10,6);
+        $this->SetFont('Times New Roman',10); 
+        $this->Cell(270,5,"Republic of the Philippines)',0,0,'C');
+        $this->Ln();
+        $this->SetFont('Times New Roman',10);
+        $this->Cell(270,10,"Province of Cavite",0,0,'C');
+        $this->Ln();
+        $this->SetFont('Times New Roman',10); 
+        $this->Cell(270,15,"City of Dasmariñas",0,0,'C');
+        $this->Ln();
+        $this->SetFont('Times New Roman','B',10); 
+        $this->Cell(270,20,"Barangay Salitran II",0,0,'C');
+        $this->Ln();
+        $this->SetFont('Times New Roman',10); 
+        $this->Cell(270,25,"Tel.No.(046)540-5804",0,0,'C');
+        $this->Ln();
+        $this->SetFont('Algerian',14);
+        $this->Ln(20);
+    }
+$pdf = new myPDF();
+$pdf->AliasNbPages();
+$pdf->AddPage('L','A4',0);
+$pdf->Output();
+
+}
+
+
+
+
+?>
