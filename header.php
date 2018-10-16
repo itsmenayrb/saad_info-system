@@ -63,7 +63,6 @@
                             <a class="dropdown-item" href="saad_info-system/certification1.pdf" download>Barangay Certification</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="saad_info-system/Republic of the Philippines1.pdf" download>Barangay Clearance</a>
-                            <a class="dropdown-item" href="#">Cedula</a>
                         </div>
                     </li>
                 </ul>
