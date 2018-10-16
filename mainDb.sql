@@ -131,8 +131,8 @@ CREATE TABLE `users` (
   `AnswerOne` varchar(255) NOT NULL,
   `SecurityQuestion2` varchar(255) NOT NULL,
   `AnswerTwo` varchar(255) NOT NULL,
-  `Token` varchar(255) NOT NULL,
-  `TokenSum` varchar(255) NOT NULL,
+  `Token` varchar(255),
+  `TokenSum` varchar(255),
   `DateCreated` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
