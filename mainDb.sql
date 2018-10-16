@@ -84,8 +84,8 @@ CREATE TABLE `residents` (
   `Age` int(11) NOT NULL,
   `Bplace` varchar(256) NOT NULL,
   `Homeaddress` varchar(256) NOT NULL,
-  `TelephoneNumber` bigint(11) NOT NULL,
-  `CellphoneNumber` bigint(11) NOT NULL,
+  `TelephoneNumber` VARCHAR(20) NOT NULL,
+  `CellphoneNumber` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`user_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
