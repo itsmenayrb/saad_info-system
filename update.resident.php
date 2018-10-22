@@ -94,6 +94,11 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="birthplace">Birth Place</label>
+        <input type="text" class="form-control" name="birthplace" id="reg-birthplace" required/>
+      </div>
+
 			<div class="form-group">
         <label>Address</label><small class="form-class text-muted">(Write N/A if not applicable)</small>
         <div class="row">
