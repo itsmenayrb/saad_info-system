@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS `address`;
 
 CREATE TABLE `address` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
   `block` varchar(255) NOT NULL,
   `street` varchar(255) NOT NULL,
   `subdivision` varchar(255) NOT NULL,
