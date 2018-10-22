@@ -83,7 +83,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="birthday">Birthdate</label>
-            <input type="text" value="<?php echo $row['Bday']; ?>" class="form-control" id="reg-birthday" name="birthday" required/>
+            <input type="text" value="<?php echo date('Y-m-d', strtotime($row['Bday'])); ?>" class="form-control" id="reg-birthday" name="birthday" required/>
           </div>
         </div>
         <div class="col-md-3">
@@ -96,7 +96,7 @@
 
       <div class="form-group">
         <label for="birthplace">Birth Place</label>
-        <input type="text" class="form-control" name="birthplace" id="reg-birthplace" required/>
+        <input type="text" value="<?php echo $row['Bplace']; ?>" class="form-control" name="birthplace" id="reg-birthplace" required/>
       </div>
 
 			<div class="form-group">
