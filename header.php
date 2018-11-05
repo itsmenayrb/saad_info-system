@@ -60,9 +60,9 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">Downloadable Forms</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="saad_info-system/certification1.pdf" download>Barangay Certification</a>
+                            <a class="dropdown-item" src="saad_info-system/certification1.pdf" download="Barangay Certification">Barangay Certification</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="saad_info-system/Republic of the Philippines1.pdf" download>Barangay Clearance</a>
+                            <a class="dropdown-item" src="saad_info-system/Republic of the Philippines1.pdf" download="Barangay Clearance">Barangay Clearance</a>
                         </div>
                     </li>
                 </ul>

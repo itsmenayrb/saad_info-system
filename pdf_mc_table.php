@@ -1,6 +1,6 @@
 <?php
 //call main fpdf file
-require('pdf/fpdf.php');
+require('fpdf17/fpdf.php');
 //create new class extending fpdf class
 class PDF_MC_Table extends FPDF {
 // variable to store widths and aligns of cells, and line height
